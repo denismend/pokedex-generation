@@ -3,16 +3,10 @@
     <button mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <h1>SimpleCRM</h1>
+    <img [routerLink]="['']" width="100px" src="assets/pokemon-png-logo.png">
     <span class="menu-spacer"></span>
     <div>
-      <a mat-button [routerLink]="'/accounts'"> Accounts </a>
-      <a mat-button [routerLink]="'/create-account'"> Create Account </a>
-      <a mat-button [routerLink]="'/contacts'"> Contacts </a>
-      <a mat-button [routerLink]="'/create-contact'"> Create Contact </a>
-      <a mat-button [routerLink]="'/activities'"> Activities </a>
-      <a mat-button [routerLink]="'/create-activity'"> Create Activity </a>
-
+      <a *ngFor="let generation of generations" mat-button [routerLink]="'/'">{{generation.name}}</a>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
@@ -21,19 +15,13 @@
   <mat-sidenav #sidenav>
     <mat-nav-list>
 
-      <a mat-list-item [routerLink]="'/accounts'"> Accounts </a>
-      <a mat-list-item [routerLink]="'/create-account'"> Create Account </a>
-      <a mat-list-item [routerLink]="'/contacts'"> Contacts </a>
-      <a mat-list-item [routerLink]="'/create-contact'"> Create Contact </a>
-      <a mat-list-item [routerLink]="'/activities'"> Activities </a>
-      <a mat-list-item [routerLink]="'/create-activity'"> Create Activity </a>
-      <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+      <a *ngFor="let generation of generations"
+        (click)="sidenav.toggle()" mat-list-item [routerLink]="">{{generation.name}}</a>
 
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div style="height: 88vh;">
-
+    <div>
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>
