@@ -1,0 +1,57 @@
+.divComponent{
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 15px;
+}
+
+.divList {
+  flex: 1;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.divContainer {
+  flex: 1;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  > div {
+    padding: 10px;
+  }
+}
+
+.title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.versionName {
+  font-size: 16px;
+}
+
+.select {
+  margin-left: 15px;
+}
+
+.divPokedex{
+  flex: 1;
+  padding: 0 15px;
+  align-items: center;
+}
+
+.cardPokemons{
+  justify-content: center;
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pokemonCard {
+  text-align: center;
+  width: 90px;
+  background-color: #f1f1f15b;
+  margin: 0 10px 10px 10px;
+}

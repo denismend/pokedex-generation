@@ -10,19 +10,9 @@ import { LoadGenerations } from './load-generations';
 export class AppComponent implements OnInit {
   title = 'pokedex-generation';
 
-  private generations: Generation[] = [];
-
-  constructor(private loadGenerations: LoadGenerations) {
-    this.generations = this.loadGenerations
-      .generations.map(generation => {
-        return {
-          ...generation,
-          name: generation.name.charAt(0).toUpperCase() + generation.name.slice(1)
-        }
-      });
+  constructor() {
   }
 
   ngOnInit(): void {
-    console.log(this.generations);
   }
 }

@@ -16,7 +16,7 @@ export class LoadGenerations {
     load() {
         return new Promise((resolve, reject) => {
             this.pokemonService
-                .getGenerations()
+                .getAllGenerations()
                 .subscribe((response: Generation[]) => {
                     this._generations = response;
                     resolve(true);

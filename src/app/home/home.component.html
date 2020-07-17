@@ -1,0 +1,7 @@
+<div id="container">
+  <mat-card *ngFor="let generation of generations"
+    class="card" appDarkenOnHover brightness="90%"
+    [routerLink]="['generation', generation.name]">
+    {{generation.name}}
+  </mat-card>
+</div>

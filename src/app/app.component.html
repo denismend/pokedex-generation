@@ -1,28 +1,8 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <button mat-icon-button (click)="sidenav.toggle()">
-      <mat-icon>menu</mat-icon>
-    </button>
     <img [routerLink]="['']" width="100px" src="assets/pokemon-png-logo.png">
-    <span class="menu-spacer"></span>
-    <div>
-      <a *ngFor="let generation of generations" mat-button [routerLink]="'/'">{{generation.name}}</a>
-    </div>
   </mat-toolbar-row>
+
 </mat-toolbar>
 
-<mat-sidenav-container>
-  <mat-sidenav #sidenav>
-    <mat-nav-list>
-
-      <a *ngFor="let generation of generations"
-        (click)="sidenav.toggle()" mat-list-item [routerLink]="">{{generation.name}}</a>
-
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <div>
-      <router-outlet></router-outlet>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<router-outlet></router-outlet>
