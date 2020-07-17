@@ -11,6 +11,7 @@ import { GamesComponent } from './games/games.component';
 import { HomeComponent } from './home/home.component';
 import { DarkenOnHoverModule } from 'src/shared/directives/dark-on-hover/dark-on-hover.module';
 import { PkmShinyOnHoverModule } from 'src/shared/directives/pkm-shiny-on-hover/pkm-shiny-on-hover.module';
+import { PokemonDialogComponent } from './pokemon/pokemon-dialog/pokemon-dialog.component';
 
 export function loadFirstData(provider: LoadGenerations) {
   return () => provider.load();
@@ -20,7 +21,8 @@ export function loadFirstData(provider: LoadGenerations) {
   declarations: [
     AppComponent,
     GamesComponent,
-    HomeComponent
+    HomeComponent,
+    PokemonDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +53,7 @@ export function loadFirstData(provider: LoadGenerations) {
       multi: true
     },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [PokemonDialogComponent]
 })
 export class AppModule { }

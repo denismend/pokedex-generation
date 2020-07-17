@@ -1,0 +1,36 @@
+<div *ngIf="pokemon" class="div-componente">
+  <div style="padding: 10px;">
+      <h1 class="body-title">
+          <span class="title">#{{pokemon.id}}</span>
+          <span class="title">{{pokemon.name}}</span>
+          <mat-chip-list>
+              <div *ngFor="let type of pokemon.types">
+                  <mat-chip [class]="type.type.name">
+                      <span>{{type.type.name}}</span>
+                  </mat-chip>
+              </div>
+          </mat-chip-list>
+      </h1>
+      <div class="div-flex-space">
+          <div style="width: 30%;">
+              <img width="100%" src="{{pokemon.sprites.front_default}}">
+          </div>
+          <div class="div-status">
+              <div class="div-status-info">
+                  <div *ngFor="let stats of pokemon.stats" class="div-flex-space">
+                      <span>{{stats.stat.name}} </span><span>{{stats.base_stat}}</span>
+                  </div>
+              </div>
+              <div class="div-status-info">
+                  <div *ngFor="let stats of pokemon.stats">
+                      <div>
+                          <mat-progress-bar class="div-status-bars-info" mode="determinate" value="{{stats.base_stat}}">
+                              {{stats.base_stat}}
+                          </mat-progress-bar>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

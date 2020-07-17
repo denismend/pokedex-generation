@@ -4,6 +4,7 @@ import { PokemonService } from 'src/shared/services/pokemon/pokemon.service';
 import { MatDialog } from '@angular/material';
 
 import { GameVersion, PokedexRegion } from 'src/shared/models/game-version.model';
+import { PokemonDialogComponent } from '../pokemon/pokemon-dialog/pokemon-dialog.component';
 
 @Component({
   selector: 'app-games',
@@ -71,10 +72,10 @@ export class GamesComponent implements OnInit {
   }
 
   openDialog(id) {
-    // this.dialog.open(PokedexDialogComponent, {
-    //   width: '600px',
-    //   data: { pokemonId: id }
-    // });
+    this.dialog.open(PokemonDialogComponent, {
+      width: '600px',
+      data: { pokemonId: id }
+    });
   }
 
 }
