@@ -18,7 +18,7 @@ export class PokemonDialogComponent implements OnInit {
     private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
-    this.pokemonId = JSON.parse(JSON.stringify(this.data.pokemonId));
+    this.pokemonId = JSON.parse(JSON.stringify(this.data.id));
     this.getPokemon();
   }
 

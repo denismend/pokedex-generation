@@ -4,7 +4,6 @@ import { GamesComponent } from './games/games.component';
 import { HomeComponent } from './home/home.component';
 import { GenerationResolver } from './home/generation.resolver';
 
-
 const routes: Routes = [
   {
     path: '',

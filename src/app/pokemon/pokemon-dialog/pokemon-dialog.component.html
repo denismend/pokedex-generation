@@ -1,36 +1,42 @@
-<div *ngIf="pokemon" class="div-componente">
-  <div style="padding: 10px;">
-      <h1 class="body-title">
+<div *ngIf="pokemon" class="divComponente" >
+  <div style="padding: 10px;"
+    class="divContainer" [ngClass]="pokemon.types[0].type.name">
+
+      <div class="divHeader">
+        <div>
           <span class="title">#{{pokemon.id}}</span>
           <span class="title">{{pokemon.name}}</span>
-          <mat-chip-list>
-              <div *ngFor="let type of pokemon.types">
-                  <mat-chip [class]="type.type.name">
-                      <span>{{type.type.name}}</span>
-                  </mat-chip>
-              </div>
-          </mat-chip-list>
-      </h1>
-      <div class="div-flex-space">
-          <div style="width: 30%;">
-              <img width="100%" src="{{pokemon.sprites.front_default}}">
-          </div>
-          <div class="div-status">
-              <div class="div-status-info">
-                  <div *ngFor="let stats of pokemon.stats" class="div-flex-space">
-                      <span>{{stats.stat.name}} </span><span>{{stats.base_stat}}</span>
-                  </div>
-              </div>
-              <div class="div-status-info">
-                  <div *ngFor="let stats of pokemon.stats">
-                      <div>
-                          <mat-progress-bar class="div-status-bars-info" mode="determinate" value="{{stats.base_stat}}">
-                              {{stats.base_stat}}
-                          </mat-progress-bar>
-                      </div>
-                  </div>
-              </div>
-          </div>
+        </div>
+
+        <div *ngFor="let type of pokemon.types">
+          <span class="title spanTypes" [ngClass]="type.type.name">{{type.type.name}}</span>
+        </div>
       </div>
+
+      <p>*Passe o mouse no Pokemon para ver sua forma shiny</p>
+
+
+      <div class="divPokemon">
+
+        <div class="divImg">
+            <img width="100%" src="{{pokemon.sprites.front_default}}"
+            shinyPkmOnHover normal="{{pokemon.sprites.front_default}}"
+            shiny="{{pokemon.sprites.front_shiny}}">
+        </div>
+        <div class="divStatus">
+          <span style="font-weight: bold;">Habilidades:</span>
+          <div class="divStatusInfo">
+              <div *ngFor="let ability of pokemon.abilities" class="divFlexSpace">
+                  <span>{{ability.ability.name}} </span>
+              </div>
+          </div>
+        </div>
+
+      </div>
+
   </div>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Fechar</button>
 </div>

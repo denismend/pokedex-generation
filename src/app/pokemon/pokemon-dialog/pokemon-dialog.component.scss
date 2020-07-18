@@ -1,93 +1,53 @@
-.grass {
-  background-color: green;
-  color: #ffffff;
+p {
+  font-size: 14px;
 }
-.poison{
-  background-color: purple;
-  color: #ffffff;
-}
-.fire{
-  background-color: red;
-  color: #ffffff;
-}
-.water{
-  background-color: #4e4eff;
-  color: #ffffff;
-}
-.bug {
-  background-color: teal;
-  color: #ffffff;
-}
-.electric {
-  background-color: yellow;
-}
-.ground {
-  background-color: peru;
-}
-.fairy {
-  background-color: pink;
-}
-.fighting {
-  background-color: orange;
-}
-.psychic {
-  background-color: palevioletred;
-}
-.rock {
-  background-color: brown;
-  color: #ffffff;
-}
-.steel{
-  background-color: grey;
-  color: #ffffff;
-}
-.ghost{
-  background-color: indigo;
-  color: #ffffff;
-}
-.flying{
-  background-color: lightblue;
-}
-.dragon{
-  background-color: lightcoral;
-}
-.dark{
-  background-color: black;
-  color: #ffffff;
-}
-.ice{
-  background-color: cornflowerblue;
-}
-.div-componente{
+
+.divComponente{
   background-color: #f1f1f15b;
   border-radius: 10px;
 }
-.body-title{
-  margin-bottom: 0px; display: flex;
-}
-.title{
-  margin-right: 10px;
-}
-.div-flex-space{
+
+.divContainer {
   display: flex;
+  flex-direction: column;
+}
+
+.divHeader {
+  flex: 1;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.divPokemon {
+  flex: 1;
+
+  display: flex;
+  align-items: flex-start;
   justify-content: space-between;
 }
-.div-status{
-  width: 65%;
-  align-self: center;
-  display: flex;
+
+.divImg {
+  width: 130px;
+  height: 130px;
 }
-.div-status-info{
+
+.title {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.spanTypes {
+  margin-left: 5px;
+}
+
+.divStatus{
+  width: 300px;
+  align-self: center;
+}
+.divStatusInfo{
   width: 50%;
   align-self: center;
   margin-right: 10px;
-}
-.div-status-bars-info{
-  height: 10px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-.mat-standard-chip:focus::after {
-  background: none;
-  opacity: 0;
 }

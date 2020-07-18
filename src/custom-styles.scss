@@ -36,3 +36,64 @@ $dark-theme:   mat-dark-theme(
 .unicorn-dark-theme {
   @include angular-material-theme($dark-theme);
 }
+
+.grass {
+  background-color: green;
+  color: #ffffff;
+}
+.poison{
+  background-color: purple;
+  color: #ffffff;
+}
+.fire{
+  background-color: red;
+  color: #ffffff;
+}
+.water{
+  background-color: #4e4eff;
+  color: #ffffff;
+}
+.bug {
+  background-color: teal;
+  color: #ffffff;
+}
+.electric {
+  background-color: yellow;
+}
+.ground {
+  background-color: peru;
+}
+.fairy {
+  background-color: pink;
+}
+.fighting {
+  background-color: orange;
+}
+.psychic {
+  background-color: palevioletred;
+}
+.rock {
+  background-color: brown;
+  color: #ffffff;
+}
+.steel{
+  background-color: grey;
+  color: #ffffff;
+}
+.ghost{
+  background-color: indigo;
+  color: #ffffff;
+}
+.flying{
+  background-color: lightblue;
+}
+.dragon{
+  background-color: lightcoral;
+}
+.dark{
+  background-color: black;
+  color: #ffffff;
+}
+.ice{
+  background-color: cornflowerblue;
+}
