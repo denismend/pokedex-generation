@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Generation } from 'src/shared/models/generation.model';
 import { GameVersion } from 'src/shared/models/game-version.model';
+import { Pokedex } from 'src/shared/models/pokedex.model';
 
 interface GenerationsResponse {
   count: number;
@@ -15,8 +16,19 @@ interface GenerationResponse {
   version_groups: GameVersion[];
 }
 
-interface PokedexRegionReponse {
+interface PokemonSpeciesResponse {
+  name: string;
+  url: string;
+}
 
+interface PokedexRegionReponse {
+  name: string;
+  pokemon_entries: [
+    {
+      entry_number: number;
+      pokemon_species: PokemonSpeciesResponse
+    }
+  ]
 }
 
 @Injectable({
@@ -48,8 +60,8 @@ export class PokemonService {
     return this.httpClient.get<any>(url);
   }
 
-  getPokedexByRegion(url: string): Observable<any> {
-    return this.httpClient.get<any>(url).pipe(
+  getPokedexByRegion(url: string): Observable<Pokedex[]> {
+    return this.httpClient.get<PokedexRegionReponse>(url).pipe(
       map(pokedex => {
         return pokedex.pokemon_entries;
       }),
@@ -59,10 +71,16 @@ export class PokemonService {
           const route = '/pokemon-species/'
           const url = poke.pokemon_species.url;
           const cod = url.slice(url.indexOf(route) + route.length, url.lastIndexOf('/'))
-          poke.image = this.getImgPkmNormal(cod);
-          poke.shiny = this.getImgPkmShiny(cod);
-          poke.pokeindex = cod;
-          return poke;
+
+          const newPokedexObj: Pokedex = {
+            entry_number: poke.entry_number,
+            image: this.getImgPkmNormal(cod),
+            shiny: this.getImgPkmShiny(cod),
+            pokedexindex: cod,
+            pokemon_species: poke.pokemon_species
+          };
+
+          return newPokedexObj;
         });
       })
     );
@@ -72,11 +90,11 @@ export class PokemonService {
     return this.httpClient.get<any>(`${environment.baseURL}/pokemon/${id}`);
   }
 
-  getImgPkmNormal(id: number): string {
+  getImgPkmNormal(id: string): string {
     return (`${this.imgPkmNormalURL}${id}.png`);
   }
 
-  getImgPkmShiny(id: number): string {
+  getImgPkmShiny(id: string): string {
     return (`${this.imgPkmShinyURL}${id}.png`);
   }
 }

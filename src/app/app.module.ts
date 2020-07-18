@@ -25,6 +25,7 @@ import { CommonModule } from '@angular/common';
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+
     DarkenOnHoverModule,
     PkmShinyOnHoverModule,
 
