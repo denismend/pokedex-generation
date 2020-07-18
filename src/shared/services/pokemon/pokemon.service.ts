@@ -76,8 +76,11 @@ export class PokemonService {
             entry_number: poke.entry_number,
             image: this.getImgPkmNormal(cod),
             shiny: this.getImgPkmShiny(cod),
-            pokedexindex: cod,
-            pokemon_species: poke.pokemon_species
+            pokeindex: cod,
+            pokemon_species: {...poke.pokemon_species,
+              name: poke.pokemon_species.name.charAt(0).toUpperCase()
+                + poke.pokemon_species.name.slice(1)
+            }
           };
 
           return newPokedexObj;
@@ -86,7 +89,7 @@ export class PokemonService {
     );
   }
 
-  getPokemonById(id: number): Observable<any> {
+  getPokemonById(id: string): Observable<any> {
     return this.httpClient.get<any>(`${environment.baseURL}/pokemon/${id}`);
   }
 
