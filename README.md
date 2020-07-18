@@ -2,6 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
 
+
+### Como executar
+
+1. Faça o clone do projeto na sua máquina;
+2. Na raiz do projeto, execute o comando `npm i` para baixar as dependências;
+3. Execute `npm start` para rodar o projeto;
+4. Abra o navegador e execute a URL `http://localhost:4200`.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
