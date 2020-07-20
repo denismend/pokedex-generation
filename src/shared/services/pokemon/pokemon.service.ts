@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { Generation } from 'src/shared/models/generation.model';
 import { GameVersion } from 'src/shared/models/game-version.model';
 import { Pokedex } from 'src/shared/models/pokedex.model';
+import { Pokemon } from 'src/shared/models/pokemon.model';
 
 interface GenerationsResponse {
   count: number;
@@ -89,8 +90,8 @@ export class PokemonService {
     );
   }
 
-  getPokemonById(id: string): Observable<any> {
-    return this.httpClient.get<any>(`${environment.baseURL}/pokemon/${id}`);
+  getPokemonById(id: string): Observable<Pokemon> {
+    return this.httpClient.get<Pokemon>(`${environment.baseURL}/pokemon/${id}`);
   }
 
   getImgPkmNormal(id: string): string {
