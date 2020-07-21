@@ -3,39 +3,24 @@
     <mat-card>
       <div class="divContainer">
 
-        <div>
+        <div class="divBox">
 
-          <div class="divBox">
+          <span class="title">Jogos</span>
 
-            <span class="title">Jogos</span>
+          <mat-form-field class="select" appearance="fill">
+            <mat-label>Selecione um jogo</mat-label>
+            <mat-select [(value)]="selectedGameVersionUrl"
+              (selectionChange)="getRegionsByVersion()">
+              <mat-option *ngFor="let game of gamesVersionByFromGeneration"
+                value="{{game.url}}">{{game.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
 
-            <mat-form-field class="select" appearance="fill">
-              <mat-label>Selecione um jogo</mat-label>
-              <mat-select [(value)]="selectedGameVersionUrl"
-                (selectionChange)="getRegionsByVersion()">
-                <mat-option *ngFor="let game of gamesVersionByFromGeneration"
-                  value="{{game.url}}">{{game.name}}</mat-option>
-              </mat-select>
-            </mat-form-field>
-
-          </div>
-
-
-          <div>
-            <div *ngIf="gameVersion">
-              <span class="versionName">Versão selecionada: {{gameVersion.name}}</span>
-            </div>
-
-            <div *ngIf="selectedPokedex">
-              <span class="versionName">Região selecionada: {{selectedRegion.name}}</span>
-            </div>
-          </div>
         </div>
 
-        <div style="margin-left: 15px;">
-          <div *ngIf="gameVersion && selectedPokedex">
+        <div class="divBox" *ngIf="gameVersion && selectedPokedex">
 
-            <span class="title">Regiões</span>
+          <span class="title">Regiões</span>
 
             <mat-form-field class="select" appearance="fill">
               <mat-label>Selecione um jogo</mat-label>
@@ -45,13 +30,23 @@
                   value="{{pokedex.url}}">{{pokedex.name}}</mat-option>
               </mat-select>
             </mat-form-field>
-          </div>
 
         </div>
 
       </div>
 
+      <div>
+        <div *ngIf="gameVersion">
+          <span class="versionName">Versão selecionada: {{gameVersion.name}}</span>
+        </div>
+
+        <div *ngIf="selectedPokedex">
+          <span class="versionName">Região selecionada: {{selectedRegion.name}}</span>
+        </div>
+      </div>
+
     </mat-card>
+
   </div>
 
   <div class="divPokedex">

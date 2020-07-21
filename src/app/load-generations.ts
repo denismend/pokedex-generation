@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Generation } from 'src/shared/models/generation.model';
+import { GenerationModel } from 'src/shared/models/generation.model';
 import { PokemonService } from 'src/shared/services/pokemon/pokemon.service';
 
 @Injectable()
 export class LoadGenerations {
 
-    private _generations: Generation[];
+    private _generations: GenerationModel[];
 
-    get generations(): Generation[] {
+    get generations(): GenerationModel[] {
         return this._generations;
     }
 
@@ -17,7 +17,7 @@ export class LoadGenerations {
         return new Promise((resolve, reject) => {
             this.pokemonService
                 .getAllGenerations()
-                .subscribe((response: Generation[]) => {
+                .subscribe((response: GenerationModel[]) => {
                     this._generations = response;
                     resolve(true);
                 })

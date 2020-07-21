@@ -4,10 +4,10 @@ import { Observable } from 'rxjs';
 
 
 import { PokemonService } from 'src/shared/services/pokemon/pokemon.service';
-import { Generation } from 'src/shared/models/generation.model';
+import { GenerationModel } from 'src/shared/models/generation.model';
 
 @Injectable()
-export class GenerationResolver implements Resolve<Observable<Generation[]>> {
+export class GenerationResolver implements Resolve<Observable<GenerationModel[]>> {
   constructor(private pokemonService: PokemonService) {}
 
   resolve() {
