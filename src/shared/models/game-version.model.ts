@@ -1,4 +1,4 @@
-export interface PokedexRegion {
+export interface PokedexRegionModel {
   name: string;
   url: string;
 }
@@ -6,5 +6,5 @@ export interface PokedexRegion {
 export interface GameVersion {
   name: string;
   url: string;
-  pokedexes?: PokedexRegion[]
+  pokedexes?: PokedexRegionModel[]
 }

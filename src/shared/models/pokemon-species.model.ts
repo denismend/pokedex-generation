@@ -1,4 +1,4 @@
-export interface PokeSpecies {
+export interface PokeSpeciesModel {
   name: string;
   url: string;
 }

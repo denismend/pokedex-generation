@@ -3,13 +3,13 @@ import { ActivatedRoute } from '@angular/router';
 import { PokemonService } from 'src/shared/services/pokemon/pokemon.service';
 import { MatDialog } from '@angular/material';
 
-import { GameVersion, PokedexRegion } from 'src/shared/models/game-version.model';
+import { GameVersion, PokedexRegionModel } from 'src/shared/models/game-version.model';
 import { PokemonDialogComponent } from '../pokemon/pokemon-dialog/pokemon-dialog.component';
-import { Pokedex } from 'src/shared/models/pokedex.model';
+import { PokedexModel } from 'src/shared/models/pokedex.model';
 
 interface SelectPokedex {
   name?: string;
-  pokemons?: Pokedex[],
+  pokemons?: PokedexModel[],
 }
 
 @Component({
@@ -27,7 +27,7 @@ export class GamesComponent implements OnInit {
   selectedGameVersion: GameVersion;
   selectedGameVersionUrl: string = '';
 
-  selectedRegion: PokedexRegion;
+  selectedRegion: PokedexRegionModel;
   selectedRegionUrl: string;
   selectedPokedex: SelectPokedex;
 

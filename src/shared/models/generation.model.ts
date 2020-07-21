@@ -1,4 +1,4 @@
-export interface Generation {
+export interface GenerationModel {
   name: string;
   capitalizeName: string;
   url: string;

@@ -1,4 +1,4 @@
-export interface Pokedex {
+export interface PokedexModel {
   entry_number: number;
   image: string;
   pokeindex: string;
