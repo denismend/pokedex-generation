@@ -23,6 +23,12 @@
   }
 }
 
+.divBox {
+  display: flex;
+  align-items: center;
+  //justify-content: center;
+}
+
 .title {
   font-weight: bold;
   font-size: 20px;
@@ -47,6 +53,8 @@
   flex: 1;
   display: flex;
   flex-wrap: wrap;
+
+
 }
 
 .pokemonCard {
@@ -55,6 +63,12 @@
   height: 140px;
   background-color: #f1f1f15b;
   margin: 0 10px 10px 10px;
+
+  box-shadow:
+    0 0 0 1px red,
+    5px 5px #888888;
+  ;
+
 
   cursor: pointer;
 }

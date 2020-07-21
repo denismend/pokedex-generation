@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Generation } from 'src/shared/models/generation.model';
+import { GenerationModel } from 'src/shared/models/generation.model';
 import { LoadGenerations } from './load-generations';
 
 @Component({

@@ -3,20 +3,33 @@ import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Generation } from 'src/shared/models/generation.model';
+import { GenerationModel } from 'src/shared/models/generation.model';
 import { GameVersion } from 'src/shared/models/game-version.model';
+import { PokedexModel } from 'src/shared/models/pokedex.model';
+import { PokemonModel } from 'src/shared/models/pokemon.model';
 
 interface GenerationsResponse {
   count: number;
-  results: Generation[];
+  results: GenerationModel[];
 }
 
 interface GenerationResponse {
   version_groups: GameVersion[];
 }
 
-interface PokedexRegionReponse {
+interface PokemonSpeciesResponse {
+  name: string;
+  url: string;
+}
 
+interface PokedexRegionReponse {
+  name: string;
+  pokemon_entries: [
+    {
+      entry_number: number;
+      pokemon_species: PokemonSpeciesResponse
+    }
+  ]
 }
 
 @Injectable({
@@ -31,7 +44,7 @@ export class PokemonService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllGenerations(): Observable<Generation[]> {
+  getAllGenerations(): Observable<GenerationModel[]> {
     return this.httpClient.get<GenerationsResponse>(`${environment.baseURL}/generation`)
       .pipe(
         map(res => {
@@ -48,8 +61,8 @@ export class PokemonService {
     return this.httpClient.get<any>(url);
   }
 
-  getPokedexByRegion(url: string): Observable<any> {
-    return this.httpClient.get<any>(url).pipe(
+  getPokedexByRegion(url: string): Observable<PokedexModel[]> {
+    return this.httpClient.get<PokedexRegionReponse>(url).pipe(
       map(pokedex => {
         return pokedex.pokemon_entries;
       }),
@@ -59,24 +72,33 @@ export class PokemonService {
           const route = '/pokemon-species/'
           const url = poke.pokemon_species.url;
           const cod = url.slice(url.indexOf(route) + route.length, url.lastIndexOf('/'))
-          poke.image = this.getImgPkmNormal(cod);
-          poke.shiny = this.getImgPkmShiny(cod);
-          poke.pokeindex = cod;
-          return poke;
+
+          const newPokedexObj: PokedexModel = {
+            entry_number: poke.entry_number,
+            image: this.getImgPkmNormal(cod),
+            shiny: this.getImgPkmShiny(cod),
+            pokeindex: cod,
+            pokemon_species: {...poke.pokemon_species,
+              name: poke.pokemon_species.name.charAt(0).toUpperCase()
+                + poke.pokemon_species.name.slice(1)
+            }
+          };
+
+          return newPokedexObj;
         });
       })
     );
   }
 
-  getPokemonById(id: number): Observable<any> {
-    return this.httpClient.get<any>(`${environment.baseURL}/pokemon/${id}`);
+  getPokemonById(id: string): Observable<PokemonModel> {
+    return this.httpClient.get<PokemonModel>(`${environment.baseURL}/pokemon/${id}`);
   }
 
-  getImgPkmNormal(id: number): string {
+  getImgPkmNormal(id: string): string {
     return (`${this.imgPkmNormalURL}${id}.png`);
   }
 
-  getImgPkmShiny(id: number): string {
+  getImgPkmShiny(id: string): string {
     return (`${this.imgPkmShinyURL}${id}.png`);
   }
 }

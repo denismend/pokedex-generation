@@ -3,8 +3,14 @@ import { ActivatedRoute } from '@angular/router';
 import { PokemonService } from 'src/shared/services/pokemon/pokemon.service';
 import { MatDialog } from '@angular/material';
 
-import { GameVersion, PokedexRegion } from 'src/shared/models/game-version.model';
+import { GameVersion, PokedexRegionModel } from 'src/shared/models/game-version.model';
 import { PokemonDialogComponent } from '../pokemon/pokemon-dialog/pokemon-dialog.component';
+import { PokedexModel } from 'src/shared/models/pokedex.model';
+
+interface SelectPokedex {
+  name?: string;
+  pokemons?: PokedexModel[],
+}
 
 @Component({
   selector: 'app-games',
@@ -21,9 +27,9 @@ export class GamesComponent implements OnInit {
   selectedGameVersion: GameVersion;
   selectedGameVersionUrl: string = '';
 
-  selectedRegion: PokedexRegion;
+  selectedRegion: PokedexRegionModel;
   selectedRegionUrl: string;
-  selectedPokedex: any;
+  selectedPokedex: SelectPokedex;
 
   constructor(private activatedroute: ActivatedRoute, private pokemonService: PokemonService,
     public dialog: MatDialog) { }
@@ -53,7 +59,7 @@ export class GamesComponent implements OnInit {
           this.selectedRegionUrl = result.pokedexes[0].url;
           this.getRegion();
         } else {
-          this.selectedPokedex = [];
+          this.selectedPokedex = {};
         }
       });
     }
@@ -71,9 +77,9 @@ export class GamesComponent implements OnInit {
     }
   }
 
-  openDialog(id) {
+  openDialog(id: string) {
     this.dialog.open(PokemonDialogComponent, {
-      width: '550px',
+      width: '500px',
       data: { id: id }
     });
   }

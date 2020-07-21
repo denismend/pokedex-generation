@@ -11,20 +11,21 @@ import { DarkenOnHoverModule } from 'src/shared/directives/dark-on-hover/dark-on
 import { PkmShinyOnHoverModule } from 'src/shared/directives/pkm-shiny-on-hover/pkm-shiny-on-hover.module';
 import { PokemonDialogComponent } from './pokemon/pokemon-dialog/pokemon-dialog.component';
 import { HomeComponent } from './home/home.component';
-import { GamesComponent } from './games/games.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GamesComponent,
     HomeComponent,
     PokemonDialogComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+
     DarkenOnHoverModule,
     PkmShinyOnHoverModule,
 
