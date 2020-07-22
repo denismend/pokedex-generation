@@ -17,6 +17,7 @@ import { PkmShinyOnHoverModule } from 'src/shared/directives/pkm-shiny-on-hover/
 import { GamesComponent } from './games.component';
 import { GamesRoutingModule } from './games-routing.module';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from 'src/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,
 
+    SharedModule,
     DarkenOnHoverModule,
     PkmShinyOnHoverModule,
     GamesRoutingModule,

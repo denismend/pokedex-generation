@@ -77,7 +77,7 @@ export class GamesComponent implements OnInit {
     }
   }
 
-  openDialog(id: string) {
+  openDialog = (id: string) => {
     this.dialog.open(PokemonDialogComponent, {
       width: '500px',
       data: { id: id }

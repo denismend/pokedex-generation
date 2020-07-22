@@ -1,1 +1,5 @@
-<p>pokemon-card works!</p>
+<mat-card class="pokemonCard" (click)="openDialog(pokemon.pokeindex)">
+  <div class=""><span style="width: 0%;">#{{pokemon.pokeindex}}</span></div>
+  <img class="" src="{{pokemon.image}}">
+  <span class="">{{pokemon.pokemon_species.name}}</span>
+</mat-card>

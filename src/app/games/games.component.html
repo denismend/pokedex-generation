@@ -52,12 +52,10 @@
   <div class="divPokedex">
       <mat-card *ngIf="selectedPokedex" class="cardPokemons">
           <span *ngIf="selectedPokedex.length == 0">Pokedex Vazia !!</span>
-          <mat-card class="pokemonCard"
-              *ngFor="let pokemon of selectedPokedex.pokemons" (click)="openDialog(pokemon.pokeindex)">
-              <div class=""><span style="width: 0%;">#{{pokemon.pokeindex}}</span></div>
-              <img class="" src="{{pokemon.image}}">
-              <span class="">{{pokemon.pokemon_species.name}}</span>
-          </mat-card>
+
+          <div *ngFor="let pokemon of selectedPokedex.pokemons">
+            <pokemon-card [pokemon]="pokemon" [openDialog]="openDialog"></pokemon-card>
+          </div>
       </mat-card>
   </div>
 </div>
