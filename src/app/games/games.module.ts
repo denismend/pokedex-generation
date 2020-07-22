@@ -10,7 +10,8 @@ import {
   MatCardModule,
   MatDialogModule,
   MatProgressBarModule,
-  MatSelectModule } from  '@angular/material';
+  MatSelectModule,
+  MatInputModule} from  '@angular/material';
 
 import { DarkenOnHoverModule } from 'src/shared/directives/dark-on-hover/dark-on-hover.module';
 import { PkmShinyOnHoverModule } from 'src/shared/directives/pkm-shiny-on-hover/pkm-shiny-on-hover.module';
@@ -41,7 +42,8 @@ import { SharedModule } from 'src/shared/shared.module';
     MatCardModule,
     MatChipsModule,
     MatProgressBarModule,
-    MatSelectModule
+    MatSelectModule,
+    MatInputModule
   ],
   providers: [],
 })
