@@ -21,6 +21,8 @@ export class GamesComponent implements OnInit {
 
   generation: string;
 
+  searchName: string = '';
+  searchEnable: boolean = false;
 
   gamesVersionByFromGeneration: GameVersion[];
   gameVersion: GameVersion;
@@ -30,6 +32,7 @@ export class GamesComponent implements OnInit {
   selectedRegion: PokedexRegionModel;
   selectedRegionUrl: string;
   selectedPokedex: SelectPokedex;
+  selectedPokedexBackup: SelectPokedex;
 
   constructor(private activatedroute: ActivatedRoute, private pokemonService: PokemonService,
     public dialog: MatDialog) { }
@@ -59,7 +62,8 @@ export class GamesComponent implements OnInit {
           this.selectedRegionUrl = result.pokedexes[0].url;
           this.getRegion();
         } else {
-          this.selectedPokedex = {};
+          this.selectedPokedex = { pokemons: null };
+          this.selectedPokedexBackup = { pokemons: undefined };
         }
       });
     }
@@ -73,6 +77,7 @@ export class GamesComponent implements OnInit {
     if(this.selectedRegion) {
       this.pokemonService.getPokedexByRegion(this.selectedRegion.url).subscribe(pokedex => {
         this.selectedPokedex = { name: this.selectedRegion.name, pokemons: pokedex };
+        this.selectedPokedexBackup = {...this.selectedPokedex};
       });
     }
   }
@@ -84,4 +89,21 @@ export class GamesComponent implements OnInit {
     });
   }
 
+  handleSearchPokemonOnList() {
+    this.searchEnable = true;
+
+    if(this.searchName === '') {
+      this.handleBackList();
+    }
+
+    this.selectedPokedex.pokemons = this.selectedPokedex.pokemons.filter(pokemon => {
+      return pokemon.pokemon_species.name === this.searchName;
+    });
+  }
+
+  handleBackList() {
+    this.searchEnable = false;
+    this.selectedPokedex = {...this.selectedPokedexBackup};
+    return;
+  }
 }

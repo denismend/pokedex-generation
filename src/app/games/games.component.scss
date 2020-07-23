@@ -29,6 +29,21 @@
   //justify-content: center;
 }
 
+.searchBox {
+  display: flex;
+  align-items: center;
+}
+
+.buttonSearch {
+  flex: 1;
+  margin-bottom: 20px;
+  margin-left: 15px;
+}
+
+mat-form-field.mat-form-field-flex {
+  align-items: center !important;
+}
+
 .title {
   font-weight: bold;
   font-size: 20px;
@@ -45,7 +60,10 @@
 .divPokedex{
   flex: 1;
   padding: 0 15px;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .cardPokemons{
@@ -53,4 +71,8 @@
   flex: 1;
   display: flex;
   flex-wrap: wrap;
+}
+
+.buttonShowAll {
+  color: red;
 }

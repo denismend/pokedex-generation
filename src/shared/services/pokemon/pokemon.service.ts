@@ -94,6 +94,10 @@ export class PokemonService {
     return this.httpClient.get<PokemonModel>(`${environment.baseURL}/pokemon/${id}`);
   }
 
+  getPokemonByName(name: string): Observable<PokemonModel> {
+    return this.httpClient.get<PokemonModel>(`${environment.baseURL}/pokemon/${name}`);
+  }
+
   getImgPkmNormal(id: string): string {
     return (`${this.imgPkmNormalURL}${id}.png`);
   }

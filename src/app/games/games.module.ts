@@ -19,6 +19,7 @@ import { GamesComponent } from './games.component';
 import { GamesRoutingModule } from './games-routing.module';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { SharedModule } from 'src/shared/shared.module';
   ],
   imports: [
     CommonModule,
+    FormsModule,
 
     SharedModule,
     DarkenOnHoverModule,
