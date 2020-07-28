@@ -55,8 +55,8 @@ export class GamesComponent implements OnInit {
           this.handleBackList();
         }
 
-        this.selectedPokedex.pokemons = this.selectedPokedex.pokemons.filter(pokemon => {
-          return pokemon.pokemon_species.name.includes( filter );
+        this.selectedPokedex.pokemons = this.selectedPokedexBackup.pokemons.filter(pokemon => {
+          return pokemon.pokemon_species.name.toLowerCase().includes( filter.toLowerCase() );
         });
       });
   }
