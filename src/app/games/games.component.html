@@ -5,26 +5,6 @@
 
         <div class="divBox">
 
-          <div class="searchBox">
-            <mat-form-field appearance="outline" [hideRequiredMarker]="true">
-              <mat-label>Pesquisar</mat-label>
-              <input matInput type="text" placeholder="Nome" [(ngModel)]="searchName">
-              <button *ngIf="searchName"
-                mat-button matSuffix mat-icon-button aria-label="Clear" (click)="searchName=''">
-                <mat-icon>close</mat-icon>
-              </button>
-            </mat-form-field>
-
-            <button mat-button matSuffix mat-icon-button aria-label="Search"
-              class="buttonSearch" (click)="handleSearchPokemonOnList()">
-              <mat-icon>search</mat-icon>
-            </button>
-          </div>
-
-        </div>
-
-        <div class="divBox">
-
           <span class="title">Jogos</span>
 
           <mat-form-field class="select" appearance="fill">
@@ -70,19 +50,42 @@
   </div>
 
   <div class="divPokedex">
-      <mat-card *ngIf="selectedPokedex" class="cardPokemons">
-          <span *ngIf="!selectedPokedex.pokemons">Pokedex Vazia !!</span>
+    <!-- <mat-form-field *ngIf="selectedPokedex" appearance="outline"
+      [hideRequiredMarker]="true">
+      <input matInput type="text" placeholder="Nome" [(ngModel)]="searchName">
+    </mat-form-field> -->
 
-          <div *ngFor="let pokemon of selectedPokedex.pokemons">
-            <pokemon-card [pokemon]="pokemon" [openDialog]="openDialog"></pokemon-card>
-          </div>
+    <mat-card *ngIf="selectedPokedex" class="cardPokemonContainer" class="cardPokemonsContainer">
 
-      </mat-card>
+      <div class="searchBox">
+        <mat-form-field *ngIf="selectedPokedex && selectedPokedex.pokemons" appearance="outline"
+          [hideRequiredMarker]="true">
+          <mat-label>Pesquisar</mat-label>
+          <input matInput type="text" placeholder="Nome"
+            (keyup)="debounce.next($event.target.value)" [(ngModel)]="searchName">
 
-      <button *ngIf="searchEnable"
-        class="buttonShowAll"
-        mat-button (click)="handleBackList()">
-        Exibir Todos
-      </button>
+          <button *ngIf="searchName"
+            mat-button matSuffix mat-icon-button aria-label="Clear"
+              (click)="handleBackList()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+
+      <div class="cardPokemons">
+        <span *ngIf="!selectedPokedex.pokemons">Pokedex Vazia !!</span>
+
+        <div *ngFor="let pokemon of selectedPokedex.pokemons">
+          <pokemon-card [pokemon]="pokemon" [openDialog]="openDialog"></pokemon-card>
+        </div>
+      </div>
+
+    </mat-card>
+
+    <button *ngIf="searchEnable"
+      class="buttonShowAll"
+      mat-button (click)="handleBackList()">
+      Exibir Todos
+    </button>
   </div>
 </div>

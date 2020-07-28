@@ -1,6 +1,6 @@
 .divComponent{
   height: 80%;
-  display: flex;
+  // display: flex;
   flex-direction: column;
   padding-top: 15px;
 }
@@ -32,6 +32,7 @@
 .searchBox {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .buttonSearch {
@@ -58,11 +59,22 @@ mat-form-field.mat-form-field-flex {
 }
 
 .divPokedex{
+  margin-top: 5px;
   flex: 1;
   padding: 0 15px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+
+.cardPokemonsContainer{
+  width: -webkit-fill-available;
+  justify-content: center;
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
 }
 
