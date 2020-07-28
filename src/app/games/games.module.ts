@@ -10,13 +10,16 @@ import {
   MatCardModule,
   MatDialogModule,
   MatProgressBarModule,
-  MatSelectModule } from  '@angular/material';
+  MatSelectModule,
+  MatInputModule} from  '@angular/material';
 
 import { DarkenOnHoverModule } from 'src/shared/directives/dark-on-hover/dark-on-hover.module';
 import { PkmShinyOnHoverModule } from 'src/shared/directives/pkm-shiny-on-hover/pkm-shiny-on-hover.module';
 import { GamesComponent } from './games.component';
 import { GamesRoutingModule } from './games-routing.module';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from 'src/shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { CommonModule } from '@angular/common';
   ],
   imports: [
     CommonModule,
+    FormsModule,
 
+    SharedModule,
     DarkenOnHoverModule,
     PkmShinyOnHoverModule,
     GamesRoutingModule,
@@ -39,7 +44,8 @@ import { CommonModule } from '@angular/common';
     MatCardModule,
     MatChipsModule,
     MatProgressBarModule,
-    MatSelectModule
+    MatSelectModule,
+    MatInputModule
   ],
   providers: [],
 })

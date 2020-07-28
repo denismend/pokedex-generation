@@ -1,6 +1,6 @@
 .divComponent{
   height: 80%;
-  display: flex;
+  // display: flex;
   flex-direction: column;
   padding-top: 15px;
 }
@@ -29,6 +29,22 @@
   //justify-content: center;
 }
 
+.searchBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonSearch {
+  flex: 1;
+  margin-bottom: 20px;
+  margin-left: 15px;
+}
+
+mat-form-field.mat-form-field-flex {
+  align-items: center !important;
+}
+
 .title {
   font-weight: bold;
   font-size: 20px;
@@ -43,9 +59,23 @@
 }
 
 .divPokedex{
+  margin-top: 5px;
   flex: 1;
   padding: 0 15px;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+.cardPokemonsContainer{
+  width: -webkit-fill-available;
+  justify-content: center;
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .cardPokemons{
@@ -53,22 +83,8 @@
   flex: 1;
   display: flex;
   flex-wrap: wrap;
-
-
 }
 
-.pokemonCard {
-  text-align: center;
-  width: 90px;
-  height: 140px;
-  background-color: #f1f1f15b;
-  margin: 0 10px 10px 10px;
-
-  box-shadow:
-    0 0 0 1px red,
-    5px 5px #888888;
-  ;
-
-
-  cursor: pointer;
+.buttonShowAll {
+  color: red;
 }

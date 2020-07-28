@@ -37,6 +37,10 @@ $dark-theme:   mat-dark-theme(
   @include angular-material-theme($dark-theme);
 }
 
+.mat-form-field-flex {
+  align-items: center !important;
+}
+
 .grass {
   background-color: green;
   color: #ffffff;
