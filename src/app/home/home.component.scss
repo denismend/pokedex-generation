@@ -11,12 +11,20 @@
 }
 
 .card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
   width: 150px;
   height: 200px;
   border: 1px solid #f1f1f15b;
   margin: 5px;
   padding: 10px;
   cursor:pointer;
+
+  li {
+    color: red;
+  }
 
   box-shadow:
     0 0 0 1px red,

@@ -3,5 +3,11 @@
     class="card" appDarkenOnHover brightness="90%"
     [routerLink]="['generation', generation.name]">
     {{generation.name}}
+
+    <div class="div-flex-flow">
+      <div *ngFor=" let version of generation.version_groups">
+        <li class="name-generation">{{version.name}}</li>
+      </div>
+    </div>
   </mat-card>
 </div>
