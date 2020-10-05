@@ -1,9 +1,21 @@
-<mat-toolbar color="primary" style="display: flex; flex-direction: row;">
+<!-- <mat-toolbar color="primary" style="display: flex; flex-direction: row;">
   <button [routerLink]="['']" mat-button>Voltar</button>
   <mat-toolbar-row>
     <img [routerLink]="['']" width="100px" src="assets/pokemon-png-logo.png">
   </mat-toolbar-row>
+</mat-toolbar> -->
 
-</mat-toolbar>
+<div class="container">
+  <div class="content">
+    <img [routerLink]="['']" width="100px" src="assets/pokemon-png-logo.png">
+
+  </div>
+
+  <div div="box-container">
+    <svg viewBox="0 0 500 50" preserveAspectRatio="none">
+      <path class="box-container-path" d="M0.00,00.00 C250.00,20 250.00,20 500.00,00.00 L500.00,0.00 L0.00,0.00 Z"></path>
+    </svg>
+  </div>
+  </div>
 
 <router-outlet></router-outlet>
