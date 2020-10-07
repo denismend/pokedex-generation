@@ -1,86 +1,48 @@
-<!-- <div *ngIf="pokemon" class="divComponente" >
-  <div style="padding: 10px;"
-    class="divContainer" [ngClass]="pokemon.types[0].type.name">
-
-      <div class="divHeader">
-        <div>
-          <span class="title">#{{pokemon.id}}</span>
-          <span class="title">{{pokemon.name}}</span>
-        </div>
-
-        <div *ngFor="let type of pokemon.types">
-          <span class="title spanTypes" [ngClass]="type.type.name">{{type.type.name}}</span>
-        </div>
+<div *ngIf="pokemon" class="card">
+  <div class="additional" [ngClass]="pokemon.types[0].type.name">
+    <div class="pokemon-card">
+      <div mat-dialog-actions class="button-close">
+        <button mat-button mat-dialog-close>X</button>
       </div>
 
-      <p>*Passe o mouse no Pokemon para ver sua forma shiny</p>
-
-
-      <div class="divPokemon">
-
-        <div class="divImg">
-            <img width="100%" src="{{pokemon.sprites.front_default}}"
-            shinyPkmOnHover normal="{{pokemon.sprites.front_default}}"
-            shiny="{{pokemon.sprites.front_shiny}}">
-        </div>
-        <div class="divStatus">
-          <span style="font-weight: bold;">Habilidades:</span>
-          <div class="divStatusInfo">
-              <div *ngFor="let ability of pokemon.abilities">
-                  <span>{{ability.ability.name}} </span>
-              </div>
-          </div>
-        </div>
-
+      <div class="id center">
+        # {{pokemon.id}}
       </div>
-
-  </div>
-  </div> -->
-  <div *ngIf="pokemon" class="card">
-    <div class="additional" [ngClass]="pokemon.types[0].type.name">
-      <div class="pokemon-card">
-        <div mat-dialog-actions class="button-close">
-          <button mat-button mat-dialog-close>X</button>
-        </div>
-
-        <div class="id center">
-          # {{pokemon.id}}
-        </div>
-        <div class="name center">
-          {{pokemon.name}}
-        </div>
-        <img width="100px" class="center" src="{{pokemon.sprites.front_default}}" shinyPkmOnHover
-          normal="{{pokemon.sprites.front_default}}" shiny="{{pokemon.sprites.front_shiny}}">
+      <div class="name center">
+        {{pokemon.name}}
       </div>
+      <img width="100px" class="center" src="{{pokemon.sprites.front_default}}" shinyPkmOnHover
+        normal="{{pokemon.sprites.front_default}}" shiny="{{pokemon.sprites.front_shiny}}">
+    </div>
 
-      <div class="more-info">
+    <div class="more-info">
 
-        <div class="stat-progress" *ngFor="let stats of pokemon.stats">
-          <span>{{stats.stat.name}}</span>
-          <mat-progress-bar mode="determinate" value="{{stats.base_stat * 0.5}}"></mat-progress-bar>
-        </div>
-
+      <div class="stat-progress" *ngFor="let stats of pokemon.stats">
+        <span>{{stats.stat.name}}</span>
+        <mat-progress-bar mode="determinate" value="{{stats.base_stat * 0.5}}"></mat-progress-bar>
       </div>
 
     </div>
-    <div class="general">
-      <div class="infos">
-        <span>Tipo(s): </span>
-        <div *ngFor="let type of pokemon.types">
-          <span class="title spanTypes" [ngClass]="type.type.name">{{type.type.name}}</span>
-        </div>
-      </div>
 
-      <div class="infos">
-        <span>Habilidade(s): </span>
-        <div *ngFor="let ability of pokemon.abilities">
-          <span>{{ability.ability.name}} </span>
-        </div>
+  </div>
+  <div class="general">
+    <div class="infos">
+      <span>Tipo(s): </span>
+      <div *ngFor="let type of pokemon.types">
+        <span class="title spanTypes" [ngClass]="type.type.name">{{type.type.name}}</span>
       </div>
+    </div>
 
-      <p>*passe o mouse por cima do card para mais informações e
-        acima do pokemon para visualizar a forma shiny</p>
-
+    <div class="infos">
+      <span>Habilidade(s): </span>
+      <div *ngFor="let ability of pokemon.abilities">
+        <span>{{ability.ability.name}} </span>
       </div>
+    </div>
+
+    <p>*passe o mouse por cima do card para mais informações e
+      acima do pokemon para visualizar a forma shiny</p>
+
+  </div>
 
 </div>

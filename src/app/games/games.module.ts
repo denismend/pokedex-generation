@@ -21,10 +21,12 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { PokemonModule } from '../pokemon/pokemon.module';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
-    GamesComponent
+    GamesComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
