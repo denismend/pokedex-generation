@@ -44,7 +44,7 @@
           <span class="versionName">Versão selecionada: {{gameVersion.name}}</span>
         </div>
 
-        <div *ngIf="selectedPokedex">
+        <div *ngIf="selectedPokedex && selectedPokedex.pokemons">
           <span class="versionName">Região selecionada: {{selectedRegion.name}}</span>
         </div>
       </div>
