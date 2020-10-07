@@ -3,11 +3,11 @@
 
   <h1>{{generation.name.split('-')[1]}}</h1>
 
-  <button appDarkenOnHover [routerLink]="['generation', generation.name]">VIEW POKEDEX</button>
+  <button appDarkenOnHover [routerLink]="['generation', generation.name]">POKEDEX</button>
 
   <div class="text">
     <div class="text-content">
-      <h1 class="title">GAMES</h1>
+      <h1 class="title">JOGOS</h1>
       <div class="body-text" *ngFor="let version of generation.version_groups">
         {{version.name}}
       </div>
