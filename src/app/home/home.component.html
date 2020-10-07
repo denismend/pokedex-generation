@@ -1,13 +1,22 @@
-<div id="container">
-  <mat-card *ngFor="let generation of generations"
-    class="card" appDarkenOnHover brightness="90%"
-    [routerLink]="['generation', generation.name]">
-    {{generation.name}}
+<div id="header-container">
+  <div id="header-content">
+    <img src="../../assets/pokemon-png-logo.png">
 
-    <div class="div-flex-flow">
-      <div *ngFor=" let version of generation.version_groups">
-        <li class="name-generation">{{version.name}}</li>
-      </div>
-    </div>
-  </mat-card>
+  </div>
+
+  <div class="box-container">
+    <svg viewBox="0 0 500 50" preserveAspectRatio="none">
+      <path class="box-container-path" d="M0.00,00.00 C250.00,20 250.00,20 500.00,00.00 L500.00,0.00 L0.00,0.00 Z">
+      </path>
+    </svg>
+  </div>
+</div>
+
+<div id="container">
+  <h1> GENERATIONS</h1>
+
+  <div id="content">
+    <generation-card *ngFor="let generationObj of generations; let i = index" [generation]="generationObj" [index]="i">
+    </generation-card>
+  </div>
 </div>

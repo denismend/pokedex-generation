@@ -1,0 +1,18 @@
+<div class="card" [ngClass]="{'expanded': index === 0}" onclick="this.classList.toggle('expanded')" a ppDarkenOnHover
+  brightness="90%">
+
+  <h1>{{generation.name.split('-')[1]}}</h1>
+
+  <button appDarkenOnHover [routerLink]="['generation', generation.name]">VIEW POKEDEX</button>
+
+  <div class="text">
+    <div class="text-content">
+      <h1 class="title">GAMES</h1>
+      <div class="body-text" *ngFor="let version of generation.version_groups">
+        {{version.name}}
+      </div>
+    </div>
+  </div>
+  <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 35" width="30">
+    <path d="M5 30L50 5l45 25" fill="none" stroke="#000" stroke-width="5" /></svg>
+</div>

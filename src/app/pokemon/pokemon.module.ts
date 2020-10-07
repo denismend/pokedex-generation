@@ -11,20 +11,21 @@ import {
   MatDialogModule,
   MatProgressBarModule,
   MatSelectModule,
-  MatInputModule} from  '@angular/material';
+  MatInputModule
+} from '@angular/material';
 
 import { DarkenOnHoverModule } from 'src/shared/directives/dark-on-hover/dark-on-hover.module';
 import { PkmShinyOnHoverModule } from 'src/shared/directives/pkm-shiny-on-hover/pkm-shiny-on-hover.module';
-import { GamesComponent } from './games.component';
-import { GamesRoutingModule } from './games-routing.module';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/shared/shared.module';
 import { FormsModule } from '@angular/forms';
-import { PokemonModule } from '../pokemon/pokemon.module';
+import { PokemonCardComponent } from '../pokemon/pokemon-card/pokemon-card.component';
+import { PokemonDialogComponent } from './pokemon-dialog/pokemon-dialog.component';
 
 @NgModule({
   declarations: [
-    GamesComponent
+    PokemonDialogComponent,
+    PokemonCardComponent
   ],
   imports: [
     CommonModule,
@@ -33,8 +34,6 @@ import { PokemonModule } from '../pokemon/pokemon.module';
     SharedModule,
     DarkenOnHoverModule,
     PkmShinyOnHoverModule,
-    PokemonModule,
-    GamesRoutingModule,
 
     // Material Modules
     MatToolbarModule,
@@ -49,6 +48,11 @@ import { PokemonModule } from '../pokemon/pokemon.module';
     MatSelectModule,
     MatInputModule
   ],
+  exports: [
+    PokemonDialogComponent,
+    PokemonCardComponent
+  ],
+  entryComponents: [PokemonDialogComponent],
   providers: [],
 })
-export class GamesModule { }
+export class PokemonModule { }
