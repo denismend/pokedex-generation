@@ -42,6 +42,10 @@ $dark-theme:   mat-dark-theme(
   align-items: center !important;
 }
 
+.normal {
+  background-color: #FFFFFF;
+  color: #000000;
+}
 .grass {
   background-color: green;
   color: #ffffff;
@@ -101,4 +105,8 @@ $dark-theme:   mat-dark-theme(
 }
 .ice{
   background-color: cornflowerblue;
+}
+
+.custom-modalbox >  mat-dialog-container {
+  padding: 0;
 }

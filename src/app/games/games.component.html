@@ -1,3 +1,7 @@
+<header></header>
+
+<div style="height: 10vh"></div>
+
 <div class="divComponent">
   <div class="divList">
     <mat-card>
@@ -40,7 +44,7 @@
           <span class="versionName">Versão selecionada: {{gameVersion.name}}</span>
         </div>
 
-        <div *ngIf="selectedPokedex">
+        <div *ngIf="selectedPokedex && selectedPokedex.pokemons">
           <span class="versionName">Região selecionada: {{selectedRegion.name}}</span>
         </div>
       </div>
@@ -50,11 +54,6 @@
   </div>
 
   <div class="divPokedex">
-    <!-- <mat-form-field *ngIf="selectedPokedex" appearance="outline"
-      [hideRequiredMarker]="true">
-      <input matInput type="text" placeholder="Nome" [(ngModel)]="searchName">
-    </mat-form-field> -->
-
     <mat-card *ngIf="selectedPokedex" class="cardPokemonContainer" class="cardPokemonsContainer">
 
       <div class="searchBox">

@@ -1,34 +1,90 @@
-#container {
-  height: 90%;
-  margin: 0;
+#header-container {
+  @media screen and (min-width: 1024px) {
+    &:before {
+      content: "";
+      position: absolute;
+      left: 20px;
+      width: 290px;
+      height: 260px;
+      background-image: url('../../assets/poke_background_1.png');
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      background-size: 100%;
+      z-index: 1;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 20px;
+      width: 370px;
+      height: 225px;
+      background-image: url('../../assets//poke_background_2.png');
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      background-size: 100%;
+      z-index: 1;
+    }
+  }
+}
+
+#header-content {
+  color: white;
+  height: 200px;
+  background-color: red;
+  line-height: 1.5;
+  font-weight: 300;
+  /* margin-bottom: 45px; */
+  overflow: hidden !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > img {
+    width: 300px;
+    transition: transform 0.5s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+      cursor:pointer;
+    }
+  }
+}
+
+.box-container {
+  height: 65px;
+  width: 100%;
+  overflow: hidden;
+  bottom: 0px;
+  position: relative;
+  z-index: 0;
+
+  path {
+    fill: red;
+  }
+}
+
+.box-container-path {
+  fill: red;
 }
 
 #container {
+  margin-top: -20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  > h1 {
+    font-family: 'Russo One', sans-serif;
+    margin: 0;
+  }
+}
+
+#content {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
-
-.card {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-direction: column;
-  width: 150px;
-  height: 200px;
-  border: 1px solid #f1f1f15b;
-  margin: 5px;
-  padding: 10px;
-  cursor:pointer;
-
-  li {
-    color: red;
-  }
-
-  box-shadow:
-    0 0 0 1px red,
-    5px 5px #888888;
-  ;
-}
-

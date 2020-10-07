@@ -11,32 +11,33 @@ import {
   MatDialogModule,
   MatProgressBarModule,
   MatSelectModule,
-  MatInputModule} from  '@angular/material';
+  MatInputModule
+} from '@angular/material';
 
 import { DarkenOnHoverModule } from 'src/shared/directives/dark-on-hover/dark-on-hover.module';
 import { PkmShinyOnHoverModule } from 'src/shared/directives/pkm-shiny-on-hover/pkm-shiny-on-hover.module';
-import { GamesComponent } from './games.component';
-import { GamesRoutingModule } from './games-routing.module';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/shared/shared.module';
 import { FormsModule } from '@angular/forms';
-import { PokemonModule } from '../pokemon/pokemon.module';
-import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home.component';
+import { GenerationCardComponent } from './generation-card/generation-card.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-    GamesComponent,
-    HeaderComponent
+    HomeComponent,
+    GenerationCardComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
+    BrowserAnimationsModule,
+    RouterModule,
 
     SharedModule,
     DarkenOnHoverModule,
     PkmShinyOnHoverModule,
-    PokemonModule,
-    GamesRoutingModule,
 
     // Material Modules
     MatToolbarModule,
@@ -53,4 +54,4 @@ import { HeaderComponent } from './header/header.component';
   ],
   providers: [],
 })
-export class GamesModule { }
+export class HomeModule { }

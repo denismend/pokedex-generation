@@ -105,7 +105,7 @@ export class GamesComponent implements OnInit {
 
   openDialog = (id: string) => {
     this.dialog.open(PokemonDialogComponent, {
-      width: '500px',
+      panelClass: 'custom-modalbox',
       data: { id: id }
     });
   }

@@ -9,19 +9,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoadGenerations } from './load-generations';
 import { DarkenOnHoverModule } from 'src/shared/directives/dark-on-hover/dark-on-hover.module';
 import { PkmShinyOnHoverModule } from 'src/shared/directives/pkm-shiny-on-hover/pkm-shiny-on-hover.module';
-import { PokemonDialogComponent } from './pokemon/pokemon-dialog/pokemon-dialog.component';
-import { HomeComponent } from './home/home.component';
 import { CommonModule } from '@angular/common';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    PokemonDialogComponent
+    AppComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
+    HomeModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
@@ -44,7 +42,6 @@ import { CommonModule } from '@angular/common';
   providers: [
     LoadGenerations,
   ],
-  bootstrap: [AppComponent],
-  entryComponents: [PokemonDialogComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
