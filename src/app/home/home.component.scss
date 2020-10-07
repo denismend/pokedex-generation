@@ -70,13 +70,14 @@
 }
 
 #container {
-  margin-top: -70px;
+  margin-top: -20px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 
   > h1 {
+    font-family: 'Russo One', sans-serif;
     margin: 0;
   }
 }

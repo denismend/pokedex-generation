@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { PokemonModel } from 'src/shared/models/pokemon.model';
 import { PokemonService } from 'src/shared/services/pokemon/pokemon.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { PokemonService } from 'src/shared/services/pokemon/pokemon.service';
 export class PokemonDialogComponent implements OnInit {
 
   pokemonId: any;
-  pokemon: any;
+  pokemon: PokemonModel;
 
   constructor(
     public dialogRef: MatDialogRef<PokemonDialogComponent>,

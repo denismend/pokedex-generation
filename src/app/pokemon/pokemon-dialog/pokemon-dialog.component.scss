@@ -1,54 +1,130 @@
-p {
-  font-size: 14px;
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
 }
 
-.divComponente{
-  background-color: #f1f1f15b;
-  border-radius: 10px;
+.card {
+  width: 450px;
+  height: 250px;
+  background: linear-gradient(#f8f8f8, #fff);
+  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+  overflow: hidden;
+  position: relative;
 }
 
-.divContainer {
+.card h1 {
+  text-align: center;
+}
+
+.card .additional {
+  position: absolute;
+  width: 150px;
+  height: 100%;
+  transition: width 0.4s;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.card:hover .additional {
+  width: 100%;
+  //border-radius: 0 5px 5px 0;
+}
+
+.card .additional .pokemon-card {
+  width: 150px;
+  height: 100%;
+  position: relative;
+  float: left;
+}
+
+.card .additional .pokemon-card::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 10%;
+  right: -2px;
+  height: 80%;
+  border-left: 2px solid rgba(0,0,0,0.025);
+}
+
+.card .additional .pokemon-card .id,
+.card .additional .pokemon-card .name {
+  top: 22%;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+  background: rgba(0,0,0,0.15);
+  padding: 0.125rem 0.75rem;
+  border-radius: 100px;
+  white-space: nowrap;
+  font-family: 'Russo One', sans-serif;
+}
+
+.card .additional .pokemon-card .name {
+  top: 80%;
+}
+
+.card .additional .pokemon-card .button-close {
+  margin-top: -10px;
+}
+
+.card .additional .more-info {
+
+  height: 100%;
+  padding: 1rem;
+}
+
+.card .additional .more-info .stat-progress {
   display: flex;
   flex-direction: column;
-  border-radius: 2%;
+
+  padding: 0 20px;
 }
 
-.divHeader {
-  flex: 1;
+.card .general {
+  width: 300px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  box-sizing: border-box;
+  padding: 1rem;
 
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+
+  > p {
+    font-size: 12px;
+  }
 }
 
-.divPokemon {
-  flex: 1;
+.card .general .infos {
+  margin-top: 10px;
 
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.card .general .pokemon-info {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
 }
 
-.divImg {
-  width: 130px;
-  height: 130px;
+::ng-deep .mat-progress-bar-fill::after {
+  background-color: #1E457C;
 }
 
-.title {
-  margin-right: 10px;
-  font-size: 18px;
+::ng-deep .mat-progress-bar-buffer {
+  background: #E4E8EB;
 }
 
-.spanTypes {
-  margin-left: 5px;
-}
-
-.divStatus{
-  width: 300px;
-  align-self: center;
-}
-.divStatusInfo{
-  width: 50%;
-  align-self: center;
-  margin-right: 10px;
+::ng-deep .mat-progress-bar {
+  border-radius: 2px;
+  height: 15px !important;
 }

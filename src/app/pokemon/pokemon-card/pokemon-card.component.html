@@ -1,7 +1,7 @@
 <mat-card class="pokemonCard"
   appDarkenOnHover brightness="90%"
   (click)="openDialog(pokemon.pokeindex)">
+  <img class="pkm-image" src="{{pokemon.image}}">
   <div class=""><span style="width: 0%;">#{{pokemon.pokeindex}}</span></div>
-  <img class="" src="{{pokemon.image}}">
   <span class="">{{pokemon.pokemon_species.name}}</span>
 </mat-card>
