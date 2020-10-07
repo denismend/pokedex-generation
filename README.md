@@ -11,6 +11,13 @@
   <i>Desafio Delivery Much: Pokedex por Gerações usando a pokeapi.</i>
 </p>
 
+<p align="center"
+  <br /><br />
+  <span>
+    <a href="https://pokedex-denisladeira.netlify.app/">Demo</a>
+  </span>
+</p>
+
 <p align="center">
   <img align="center" alt="Hostgator" src="git_assets/sample.gif" />
 </p>
